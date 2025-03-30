@@ -120,6 +120,7 @@ class ProductController extends Controller
         Product::where('product_id',$product_id)->update(['product_status'=>0]);
         Session::put('message','Không kích hoạt sản phẩm.');
         return Redirect::to('all-product');
+        // return Redirect::to('all-product');
     }
     public function edit_product($product_id){
         $this->Authlogin();
