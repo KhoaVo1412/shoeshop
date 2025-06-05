@@ -66,6 +66,12 @@ a#scrollUp i{
 /*************************
 *******Header CSS******
 **************************/
+#header{
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  background-color: #fff;
+}
 
 .header_top {
   background: none repeat scroll 0 0 #F0F0E9;
@@ -142,6 +148,8 @@ a#scrollUp i{
   margin-right: 0;
   padding-bottom: 20px;
   padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .header-middle .container .row .col-sm-4{
@@ -221,8 +229,8 @@ a#scrollUp i{
 
 
 .header-bottom {
-  padding-bottom: 30px;
-  padding-top: 30px;
+  padding-bottom: 10px;
+  padding-top: 10px;
 }
 
 .navbar-collapse.collapse{
@@ -243,8 +251,7 @@ a#scrollUp i{
 	font-family: 'Roboto', sans-serif;
 	font-size: 17px;
 	font-weight: 300;
-	padding: 0;
-	padding-bottom: 10px;
+	padding: 5px 0;
 }
 
 .mainmenu ul li a:hover, .mainmenu ul li a.active,  .shop-menu ul li a.active{
@@ -325,6 +332,106 @@ ul.sub-menu {
 
 .fa-angle-down{
   padding-left: 5px;
+}
+
+#sideNav{
+  display: none;
+}
+
+#overlay.active{
+  display: block;
+}
+
+#overlay{
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 999;
+  overflow: hidden;
+}
+
+#sideNav .logo-close p{
+  font-size: 20px;
+  text-align: right;
+}
+
+.nav-function-list{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding-left: 0;
+  padding-top: 20px;
+  align-items: center;
+}
+
+.nav-function-list a{
+  font-size: 16px;
+  padding: 0;
+  line-height: 20px;
+  color: #000;
+}
+
+.nav-function-list li,
+.nav-list-his-login li{
+  padding: 10px;
+  width: 100%;
+}
+
+.nav-function-list li:hover,
+.nav-list-his-login li:hover,
+.cartNav ul li:hover {
+  background-color: #d1d1d1;
+}
+
+.nav-list-his-login{
+  display: none;
+  width: 100%;
+  margin: 0;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.nav-list-his-login::before,
+.nav-list-his-login::after{
+  display: none;
+}
+
+.nav-list-his-login a{
+  padding: 0!important;
+  color: #000;
+  display: flex!important;
+  gap: 5px!important;
+}
+
+#cartNav #closecartNav,
+#closemenuP2-1-nav{
+  font-size: 20px;
+  text-align: right;
+}
+
+.cartNav ul{
+  width: 100%;
+  padding-left: 0;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.cartNav ul li{
+  width: 100%;
+  padding: 10px;
+}
+
+.cartNav ul li a{
+  font-size: 16px;
+  padding: 0;
+  line-height: 20px;
+  color: #000;
 }
 
 @-webkit-keyframes fadeInUp {
@@ -562,6 +669,31 @@ ul.sub-menu {
   text-decoration: underline;
 }
 
+.row-footer-bottom{
+  display: none;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0 15px;
+}
+
+.row-footer-bottom::before,
+.row-footer-bottom::after{
+  display: none;
+}
+
+.row-footer-bottom .nav-pills{
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 15px;
+}
+
+.row-footer-bottom .nav-pills a{
+  padding: 10px 0;
+} 
+
+.row-footer-bottom .col-sm-6{
+  padding-right: 0;
+}
 
 /*************************
 ******* Home ******
@@ -581,7 +713,7 @@ ul.sub-menu {
 }
 
 .item {
-  padding-left: 100px;
+  padding-left: 30px;
 }
 
 
@@ -824,11 +956,6 @@ h2.title:before{
   bottom: 0;
   left: 50%;
   margin-left: -5px;
-}
-
-
-.padding-right {
-  padding-right: 0;
 }
 
 .features_items{
@@ -1176,8 +1303,31 @@ h2.title {
 
 .view-product img {
   border: 1px solid #F7F7F0;
-
   width: 100%;
+  aspect-ratio: 1;
+  object-fit: contain;
+}
+
+.view-product .mini-img-list{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  gap: 15px;
+}
+
+.view-product .mini-img-list .mini-img{
+  width: calc(25% - 15px);
+  margin-top: 0;
+}
+
+.view-product .mini-img-list .mini-img.active{
+  border:1px solid #8c8c88;
+}
+
+.view-product .mini-img-list .mini-img:hover{
+  cursor: pointer;
+  border:1px solid #8c8c88;
 }
 
 .view-product h3 {
@@ -1292,8 +1442,7 @@ h2.title {
   color: #FFFFFF;
   font-family: 'Roboto', sans-serif;
   font-size: 15px;
-  margin-bottom: 10px;
-  margin-left: 20px;
+  margin-bottom: 7px;
 }
 
 

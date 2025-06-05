@@ -1,36 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>Home | GiayFake</title>
-    <link href="{{asset('frontend/css/bootstrap.min.css')}}" rel="stylesheet">
-    <link href="{{asset('frontend/css/font-awesome.min.css')}}" rel="stylesheet">
-    <link href="{{asset('frontend/css/prettyPhoto.css')}}" rel="stylesheet">
-    <link href="{{asset('frontend/css/price-range.css')}}" rel="stylesheet">
-    <link href="{{asset('frontend/css/animate.css')}}" rel="stylesheet">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<title>Home | GiayFake</title>
+	<link href="{{asset('frontend/css/bootstrap.min.css')}}" rel="stylesheet">
+	<link href="{{asset('frontend/css/font-awesome.min.css')}}" rel="stylesheet">
+	<link href="{{asset('frontend/css/prettyPhoto.css')}}" rel="stylesheet">
+	<link href="{{asset('frontend/css/price-range.css')}}" rel="stylesheet">
+	<link href="{{asset('frontend/css/animate.css')}}" rel="stylesheet">
 	<link href="{{asset('frontend/css/main.css')}}" rel="stylesheet">
 	<link href="{{asset('frontend/css/responsive.css')}}" rel="stylesheet">
 
-    <!--[if lt IE 9]>
+	<!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
     <![endif]-->
-    <link rel="shortcut icon" href="{{('frontend/images/ico/favicon.ico')}}">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{('frontend/images/ico/apple-touch-icon-144-precomposed.png')}}">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{('frontend/images/ico/apple-touch-icon-114-precomposed.png')}}">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{('frontend/images/ico/apple-touch-icon-72-precomposed.png')}}">
-    <link rel="apple-touch-icon-precomposed" href="{{('frontend/images/ico/apple-touch-icon-57-precomposed.png')}}">
+	<link rel="shortcut icon" href="{{('frontend/images/ico/favicon.ico')}}">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{('frontend/images/ico/apple-touch-icon-144-precomposed.png')}}">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{('frontend/images/ico/apple-touch-icon-114-precomposed.png')}}">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{('frontend/images/ico/apple-touch-icon-72-precomposed.png')}}">
+	<link rel="apple-touch-icon-precomposed" href="{{('frontend/images/ico/apple-touch-icon-57-precomposed.png')}}">
 </head><!--/head-->
 
 <body>
-
+	<div id="overlay"></div>
 	<header id="header"><!--header-->
 		<div class="header_top"><!--header_top-->
 			<div class="container">
-				<div class="row">
+				<div class="row row-header-top">
 					<div class="col-sm-6">
 						<div class="contactinfo">
 							<ul class="nav nav-pills">
@@ -91,25 +92,24 @@
 
 								{{-- <li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i> Yêu thích</a></li> --}}
 
-                                {{-- btn thanh toan --}}
+								{{-- btn thanh toan --}}
 
-								<li><a href="{{URL::to('/show-cart')}}"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
-                                <li><a href="{{URL::to('/show-lichsu')}}"><i class="fa fa-repeat" aria-hidden="true"></i></i>Lịch sử mua</a></li>
+								<!-- <li><a href="{{URL::to('/show-cart')}}"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li> -->
+								<li><a href="{{URL::to('/show-lichsu')}}"><i class="fa fa-repeat" aria-hidden="true"></i></i>Lịch sử mua</a></li>
 
-                                <?php
-                                $customer_id = Session::get('customer_id');
-                                if($customer_id !=NULL){
-                                ?>
-                                <li><a href="{{URL::to('/logout-checkout')}}"><i class="fa fa-sign-out" aria-hidden="true"></i> Đăng xuất</a></li>
-                                <li><a href="{{URL::to('/update-account')}}"><i class="fa fa-user" aria-hidden="true"></i></i>Tài khoản</a></li>
-                                <?php
-                                }
-                                else {
-                                ?>
-                                    <li><a href="{{URL::to('/login-checkout')}}"><i class="fa fa-sign-in" aria-hidden="true"></i> Đăng nhập</a></li>
-                                <?php
-                                }
-                                ?>
+								<?php
+								$customer_id = Session::get('customer_id');
+								if ($customer_id != NULL) {
+								?>
+									<li><a href="{{URL::to('/logout-checkout')}}"><i class="fa fa-sign-out" aria-hidden="true"></i> Đăng xuất</a></li>
+									<li><a href="{{URL::to('/update-account')}}"><i class="fa fa-user" aria-hidden="true"></i></i>Tài khoản</a></li>
+								<?php
+								} else {
+								?>
+									<li><a href="{{URL::to('/login-checkout')}}"><i class="fa fa-sign-in" aria-hidden="true"></i> Đăng nhập</a></li>
+								<?php
+								}
+								?>
 							</ul>
 						</div>
 					</div>
@@ -122,7 +122,7 @@
 				<div class="row">
 					<div class="col-sm-8">
 						<div class="navbar-header">
-							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" id="menuBtn">
 								<span class="sr-only">Toggle navigation</span>
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
@@ -152,20 +152,73 @@
 								<li><a href="contact-us.html">Liên hệ</a></li>
 							</ul>
 						</div>
+
 					</div>
 					<div class="col-sm-4">
-                        <form action="{{URL::to('/tim-kiem')}}" method="POST">
-                            {{ csrf_field() }}
-                            <div class="search_box pull-right" style="display: flex">
-                                <input type="text" name="keywords_submit" placeholder="Tìm kiếm sản phẩm"/>
-                                <input type="submit" name="search_items" style="color:#000;margin-top: 0"class="btn btn-primary btn-sm" value="Tìm kiếm"/>
-                            </div>
-                        </form>
+						<form action="{{URL::to('/tim-kiem')}}" method="POST">
+							{{ csrf_field() }}
+							<div class="search_box pull-right" style="display: flex">
+								<input type="text" name="keywords_submit" placeholder="Tìm kiếm sản phẩm" />
+								<input type="submit" name="search_items" style="color:#000;margin-top: 0" class="btn btn-primary btn-sm" value="Tìm kiếm" />
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>
 		</div><!--/header-bottom-->
+
 	</header><!--/header-->
+	<div class="dropleft-menu" id="sideNav">
+		<div class="logo-close">
+			<p id="closeBtn">X</p>
+		</div>
+		<div class="nav-function">
+			<ul class="nav-function-list">
+				<li><a href="#">Trang chủ</a></li>
+				<li><a href="#" id="cartBtn">Giỏ hàng</a></li>
+				<li><a href="#" id="contactBtn">Liên hệ</a></li>
+				<ul class="nav navbar-nav nav-list-his-login">
+
+					{{-- <li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i> Yêu thích</a></li> --}}
+
+					{{-- btn thanh toan --}}
+
+					<!-- <li><a href="{{URL::to('/show-cart')}}"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li> -->
+					<li><a href="{{URL::to('/show-lichsu')}}"><i class="fa fa-repeat" aria-hidden="true"></i></i>Lịch sử mua</a></li>
+
+					<?php
+					$customer_id = Session::get('customer_id');
+					if ($customer_id != NULL) {
+					?>
+						<li><a href="{{URL::to('/logout-checkout')}}"><i class="fa fa-sign-out" aria-hidden="true"></i> Đăng xuất</a></li>
+						<li><a href="{{URL::to('/update-account')}}"><i class="fa fa-user" aria-hidden="true"></i></i>Tài khoản</a></li>
+					<?php
+					} else {
+					?>
+						<li><a href="{{URL::to('/login-checkout')}}"><i class="fa fa-sign-in" aria-hidden="true"></i> Đăng nhập</a></li>
+					<?php
+					}
+					?>
+				</ul>
+			</ul>
+		</div>
+		<div class="cartNav" id="cartNav">
+			<p id="closecartNav">X</p>
+			<ul>
+				<li><a href="#" id="menuP2-1-btn">1</a></li>
+				<li><a href="#" id="menuP2-2-btn">2</a></li>
+				<li><a href="#" id="menuP2-3-btn">3</a></li>
+			</ul>
+			<div class="menuP2-1-nav" id="menuP2-1-nav">
+				<p id="closemenuP2-1-nav">X</p>
+				<ul>
+					<li><a href="#">4</a></li>
+					<li><a href="#">5</a></li>
+					<li><a href="#">6</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
 
 	<section id="slider"><!--slider-->
 		<div class="container">
@@ -187,8 +240,8 @@
 									<button type="button" class="btn btn-default get">Get it now</button>
 								</div>
 								<div class="col-sm-6" style="margin-top: 50px">
-									<img src="{{asset('frontend\images\banner8.jpg')}}"  class="girl img-responsive" alt="" />
-									{{-- <img src="{{('frontend\images\pricing.png')}}"  class="pricing" alt="" /> --}}
+									<img src="{{asset('frontend\images\banner8.jpg')}}" class="girl img-responsive" alt="" />
+									{{-- <img src="{{('frontend\images\pricing.png')}}" class="pricing" alt="" /> --}}
 								</div>
 							</div>
 							<div class="item">
@@ -200,7 +253,7 @@
 								</div>
 								<div class="col-sm-6" style="margin-top: 50px">
 									<img src="{{asset('frontend/images/banner10.jpg')}}" class="girl img-responsive" alt="" />
-									{{-- <img src="{{('frontend/images/pricing.png')}}"  class="pricing" alt="" /> --}}
+									{{-- <img src="{{('frontend/images/pricing.png')}}" class="pricing" alt="" /> --}}
 								</div>
 							</div>
 
@@ -246,20 +299,20 @@
 							</div>
 							@endforeach
 						</div>
-                        <div class="brands_products"><!--brands_products-->
+						<div class="brands_products"><!--brands_products-->
 							<h2>Mã khuyến mãi</h2>
-                            <div style="text-align: center;">
-                                @foreach($coupon as $key => $cou)
-                                <div class="brands-name">
-                                    <p>{{ $cou->coupon_name }}: {{ $cou->coupon_code }} ( SL: {{ $cou->coupon_qty }})</p>
-                                </div>
-                                @endforeach
-                            </div>
+							<div style="text-align: center;">
+								@foreach($coupon as $key => $cou)
+								<div class="brands-name">
+									<p>{{ $cou->coupon_name }}: {{ $cou->coupon_code }} ( SL: {{ $cou->coupon_qty }})</p>
+								</div>
+								@endforeach
+							</div>
 						</div>
 
-                        <!--/brands_products-->
+						<!--/brands_products-->
 
-                        {{-- <div class="brands_products"><!--brands_products-->
+						{{-- <div class="brands_products"><!--brands_products-->
 							<h2>Sản phẩm yêu thích</h2>
 							<div class="brands-name">
 								<div id="row_wishlist" class="row" style="margin: 0">
@@ -271,14 +324,14 @@
 
 
 						<div class="shipping text-center"><!--shipping-->
-							<img src="{{asset('frontend/images/poster.jpg')}}" alt="" style="width: 265px; margin-top: -20px;"/>
+							<img src="{{asset('frontend/images/poster.jpg')}}" alt="" style="width: 265px; margin-top: -20px;" />
 						</div><!--/shipping-->
 
 					</div>
 				</div>
 
 				<div class="col-sm-9 padding-right">
-				@yield('content')
+					@yield('content')
 
 				</div>
 			</div>
@@ -305,54 +358,54 @@
 								<a href="#">
 									<div class="iframe-img">
 										<img src="{{('frontend/images/iframe2.png')}}" alt="" />
-									</div>
-									<div class="overlay-icon">
-										<i class="fa fa-play-circle-o"></i>
-									</div>
-								</a>
-								<p>Circle of Hands</p>
-								<h2>24 DEC 2014</h2>
-							</div>
-						</div>
+		</div>
+		<div class="overlay-icon">
+			<i class="fa fa-play-circle-o"></i>
+		</div>
+		</a>
+		<p>Circle of Hands</p>
+		<h2>24 DEC 2014</h2>
+		</div>
+		</div>
 
-						<div class="col-sm-3">
-							<div class="video-gallery text-center">
-								<a href="#">
-									<div class="iframe-img">
-										<img src="{{('frontend/images/iframe3.png')}}" alt="" />
-									</div>
-									<div class="overlay-icon">
-										<i class="fa fa-play-circle-o"></i>
-									</div>
-								</a>
-								<p>Circle of Hands</p>
-								<h2>24 DEC 2014</h2>
-							</div>
-						</div>
-
-						<div class="col-sm-3">
-							<div class="video-gallery text-center">
-								<a href="#">
-									<div class="iframe-img">
-										<img src="{{('frontend/images/iframe4.png')}}" alt="" />
-									</div>
-									<div class="overlay-icon">
-										<i class="fa fa-play-circle-o"></i>
-									</div>
-								</a>
-								<p>Circle of Hands</p>
-								<h2>24 DEC 2014</h2>
-							</div>
-						</div>
+		<div class="col-sm-3">
+			<div class="video-gallery text-center">
+				<a href="#">
+					<div class="iframe-img">
+						<img src="{{('frontend/images/iframe3.png')}}" alt="" />
 					</div>
-					<div class="col-sm-3">
-						<div class="address">
-							<img src="{{('frontend/images/map.png')}}" alt="" />
-							<p>505 S Atlantic Ave Virginia Beach, VA(Virginia)</p>
-						</div>
+					<div class="overlay-icon">
+						<i class="fa fa-play-circle-o"></i>
 					</div>
-				</div>
+				</a>
+				<p>Circle of Hands</p>
+				<h2>24 DEC 2014</h2>
 			</div>
+		</div>
+
+		<div class="col-sm-3">
+			<div class="video-gallery text-center">
+				<a href="#">
+					<div class="iframe-img">
+						<img src="{{('frontend/images/iframe4.png')}}" alt="" />
+					</div>
+					<div class="overlay-icon">
+						<i class="fa fa-play-circle-o"></i>
+					</div>
+				</a>
+				<p>Circle of Hands</p>
+				<h2>24 DEC 2014</h2>
+			</div>
+		</div>
+		</div>
+		<div class="col-sm-3">
+			<div class="address">
+				<img src="{{('frontend/images/map.png')}}" alt="" />
+				<p>505 S Atlantic Ave Virginia Beach, VA(Virginia)</p>
+			</div>
+		</div>
+		</div>
+		</div>
 		</div> --}}
 
 		<div class="footer-widget">
@@ -417,6 +470,27 @@
 
 		<div class="footer-bottom">
 			<div class="container">
+				<div class="row row-footer-bottom">
+					<div class="col-sm-6">
+						<div class="contactinfo">
+							<ul class="nav nav-pills">
+								<li><a href="#"><i class="fa fa-phone"></i> +84 377266388</a></li>
+								<li><a href="#"><i class="fa fa-envelope"></i> sneakershop@gmail.com</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="social-icons pull-right">
+							<ul class="nav navbar-nav">
+								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+								<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+								<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
 				<div class="row">
 					<p class="pull-left">© Giang vs Khôi.</p>
 
@@ -426,161 +500,233 @@
 
 	</footer><!--/Footer-->
 
-    <script src="{{asset('frontend/js/jquery.js')}}"></script>
+	<script src="{{asset('frontend/js/jquery.js')}}"></script>
 	<script src="{{asset('frontend/js/bootstrap.min.js')}}"></script>
 	<script src="{{asset('frontend/js/jquery.scrollUp.min.js')}}"></script>
 	<script src="{{asset('frontend/js/price-range.js')}}"></script>
-    <script src="{{asset('frontend/js/jquery.prettyPhoto.js')}}"></script>
-    <script src="{{asset('frontend/js/main.js')}}"></script>
+	<script src="{{asset('frontend/js/jquery.prettyPhoto.js')}}"></script>
+	<script src="{{asset('frontend/js/main.js')}}"></script>
+	<script>
+		function navbarResponsive() {
+			const menuBtn = document.getElementById('menuBtn');
+			const closeBtn = document.getElementById('closeBtn');
+			const sideNav = document.getElementById('sideNav');
 
-    {{-- Loc --}}
-    <script type="text/javascript">
-         $(document).ready(function(){
-            $('#sort').on('change',function(){
-                var url = $(this).val();
-                if(url){
-                    window.location = url;
-                }
-                return false;
-            });
-         });
-    </script>
-    {{-- Yeu thich --}}
-    <script type="text/javascript">
-    function view(clicked_id){
-        if(localStorage.getItem('data')!=null){
-            var data = JSON.parse(localStorage.getItem('data'));
+			const cartBtn = document.getElementById('cartBtn');
+			const cartNav = document.getElementById('cartNav');
+			const closecartNav = document.getElementById('closecartNav');
 
-            data.reverse();
-            document.getElementById('row_wishlist').style.overflow = 'scroll';
-            document.getElementById('row_wishlist').style.height = '400px';
-            for(i=0; i<data.length; i++){
-                var id = clicked_id;
-                var name = data[i].name;
-                var image = data[i].image;
-                var price = data[i].price;
-                var url = data[i].url;
-                //chua lay dc id sau khi load
-                $('#row_wishlist').append('<div class="row" style="margin: 10px 0"><div class="col-md-4"><img width="100%" src="'+image+'"></div><div class="col-md-8 info_wishlist"><p>'+name+'</p><p style="color: #FE980F">'+price+'</p><a href="'+url+'">Xem sản phẩm<p><a class="btn btn-danger btn-xs delete_wishlist" data-id="'+id+'" style="margin-top:0">Xóa yêu thích</a></p></div>');
-            }
-        }
-    }
-    $(document).on('click','.delete_wishlist',function(event){
-                event.preventDefault(); // những hành động mặc định của sự kiện sẽ k xảy ra
-                var id = $(this).data('id');
+			const menuP2Btn = document.getElementById('menuP2-1-btn');
+			const menuP2Nav = document.getElementById('menuP2-1-nav');
+			const closemenuP2Nav = document.getElementById('closemenuP2-1-nav');
 
-                // console.log(localStorage.getItem('data'));
-                if (localStorage.getItem('data') != null) {
-                    var data = JSON.parse(localStorage.getItem('data'));
-                    if (data.length) {
-                            for (i = 0; i < data.length; i++) {
-                                if (data[i].id == id) {
-                                data.splice(i,1); //xóa phần tử khỏi mảng, tham số thứ 2 là 1 phần tử
-                            }
-                        }
-                    }
+			// Nếu bạn thêm overlay thì cần dòng này:
+			const overlay = document.getElementById('overlay');
 
-                    localStorage.setItem('data',JSON.stringify(data));  //chuyển obj->string
-                    alert('Xóa thành công');
-                    window.location.reload();
-                }
-            });
-    view();
-    function add_wishlist(clicked_id){
-            var id = clicked_id;
-            var name = document.getElementById('wishlist_productname'+id).value;
-            var price = document.getElementById('wishlist_productprice'+id).value;
-            var image = document.getElementById('wishlist_productimage'+id).src;
-            var url = document.getElementById('wishlist_producturl'+id).href;
+			menuBtn.addEventListener('click', () => {
+				sideNav.classList.add('active');
+				overlay.classList.add('active');
+			});
 
-            var newItem = {'url':url, 'id':id, 'name':name, 'price':price, 'image':image}
-            if(localStorage.getItem('data')==null){
-                localStorage.setItem('data', '[]');
-            }
-            var old_data = JSON.parse(localStorage.getItem('data'));
-            // old_data.push(newItem);
+			closeBtn.addEventListener('click', () => {
+				sideNav.classList.remove('active');
+				overlay.classList.remove('active');
+			});
+
+			cartBtn.addEventListener('click', () => {
+				cartNav.classList.add('active');
+			});
+
+			closecartNav.addEventListener('click', () => {
+				cartNav.classList.remove('active');
+			});
+
+			menuP2Btn.addEventListener('click', () => {
+				menuP2Nav.classList.add('active');
+			});
+
+			closemenuP2Nav.addEventListener('click', () => {
+				menuP2Nav.classList.remove('active');
+			});
+
+			// (Tuỳ chọn) nhấn ra ngoài để đóng
+			overlay.addEventListener('click', () => {
+				sideNav.classList.remove('active');
+				cartNav.classList.remove('active');
+				menuP2Nav.classList.remove('active');
+				overlay.classList.remove('active');
+			});
+		}
+
+		document.addEventListener('DOMContentLoaded', navbarResponsive)
+	</script>
+
+	{{-- Loc --}}
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#sort').on('change', function() {
+				var url = $(this).val();
+				if (url) {
+					window.location = url;
+				}
+				return false;
+			});
+		});
+	</script>
+	{{-- Yeu thich --}}
+	<script type="text/javascript">
+		function view(clicked_id) {
+			if (localStorage.getItem('data') != null) {
+				var data = JSON.parse(localStorage.getItem('data'));
+
+				data.reverse();
+				document.getElementById('row_wishlist').style.overflow = 'scroll';
+				document.getElementById('row_wishlist').style.height = '400px';
+				for (i = 0; i < data.length; i++) {
+					var id = clicked_id;
+					var name = data[i].name;
+					var image = data[i].image;
+					var price = data[i].price;
+					var url = data[i].url;
+					//chua lay dc id sau khi load
+					$('#row_wishlist').append('<div class="row" style="margin: 10px 0"><div class="col-md-4"><img width="100%" src="' + image + '"></div><div class="col-md-8 info_wishlist"><p>' + name + '</p><p style="color: #FE980F">' + price + '</p><a href="' + url + '">Xem sản phẩm<p><a class="btn btn-danger btn-xs delete_wishlist" data-id="' + id + '" style="margin-top:0">Xóa yêu thích</a></p></div>');
+				}
+			}
+		}
+		$(document).on('click', '.delete_wishlist', function(event) {
+			event.preventDefault(); // những hành động mặc định của sự kiện sẽ k xảy ra
+			var id = $(this).data('id');
+
+			// console.log(localStorage.getItem('data'));
+			if (localStorage.getItem('data') != null) {
+				var data = JSON.parse(localStorage.getItem('data'));
+				if (data.length) {
+					for (i = 0; i < data.length; i++) {
+						if (data[i].id == id) {
+							data.splice(i, 1); //xóa phần tử khỏi mảng, tham số thứ 2 là 1 phần tử
+						}
+					}
+				}
+
+				localStorage.setItem('data', JSON.stringify(data)); //chuyển obj->string
+				alert('Xóa thành công');
+				window.location.reload();
+			}
+		});
+		view();
+
+		function add_wishlist(clicked_id) {
+			var id = clicked_id;
+			var name = document.getElementById('wishlist_productname' + id).value;
+			var price = document.getElementById('wishlist_productprice' + id).value;
+			var image = document.getElementById('wishlist_productimage' + id).src;
+			var url = document.getElementById('wishlist_producturl' + id).href;
+
+			var newItem = {
+				'url': url,
+				'id': id,
+				'name': name,
+				'price': price,
+				'image': image
+			}
+			if (localStorage.getItem('data') == null) {
+				localStorage.setItem('data', '[]');
+			}
+			var old_data = JSON.parse(localStorage.getItem('data'));
+			// old_data.push(newItem);
 
 
-            var matches = $.grep(old_data, function(obj){
-                return obj.id == id;
-            })
-            if(matches.length){
-                alert('Sản phẩm bạn đã yêu thích,nên không thể thêm');
-            }else{
-                old_data.push(newItem);
-                $('#row_wishlist').append('<div class="row" style="margin: 10px 0"><div class="col-md-4"><img width="100%" src="'+newItem.image+'"></div><div class="col-md-8 info_wishlist"><p>'+newItem.name+'</p><p style="color: #FE980F">'+newItem.price+'</p><a href="'+newItem.url+'">Xem sản phẩm</a><p><a class="btn btn-danger btn-xs delete_wishlist" data-id="'+newItem.id+'" style="margin-top:0">Xóa yêu thích</a></p></div>');
-            }
-            localStorage.setItem('data', JSON.stringify(old_data));
-    }
-    </script>
-    {{-- Comment --}}
-    <script>
-        $(document).ready(function(){
-            load_comment();
-            function load_comment(){
-                var product_id = $('.comment_product_id').val();
-                var _token = $('input[name="_token"]').val();
-                $.ajax({
-                    url:"{{url('/load-comment')}}",
-                    method:"POST",
-                    data:{product_id:product_id, _token:_token},
-                    success:function(data){
-                        $('#comment_show').html(data);
-                    }
-                });
-            }
-            $('.send-comment').click(function(){
-                var product_id = $('.comment_product_id').val();
-                var comment_name = $('.comment_name').val();
-                var comment_content = $('.comment_content').val();
-                var _token = $('input[name="_token"]').val();
-                $.ajax({
-                    url:"{{ url('/send-comment') }}",
-                    method: "POST",
-                    data:{product_id:product_id,comment_name:comment_name ,comment_content:comment_content , _token:_token},
-                    success:function(data){
-                        load_comment();
-                        $('#notify_comment').html('<span class="text text-success">Thêm bình luận thành công, Vui lòng chờ admin duyệt!!!</span>');
+			var matches = $.grep(old_data, function(obj) {
+				return obj.id == id;
+			})
+			if (matches.length) {
+				alert('Sản phẩm bạn đã yêu thích,nên không thể thêm');
+			} else {
+				old_data.push(newItem);
+				$('#row_wishlist').append('<div class="row" style="margin: 10px 0"><div class="col-md-4"><img width="100%" src="' + newItem.image + '"></div><div class="col-md-8 info_wishlist"><p>' + newItem.name + '</p><p style="color: #FE980F">' + newItem.price + '</p><a href="' + newItem.url + '">Xem sản phẩm</a><p><a class="btn btn-danger btn-xs delete_wishlist" data-id="' + newItem.id + '" style="margin-top:0">Xóa yêu thích</a></p></div>');
+			}
+			localStorage.setItem('data', JSON.stringify(old_data));
+		}
+	</script>
+	{{-- Comment --}}
+	<script>
+		$(document).ready(function() {
+			load_comment();
 
-                        $('#notify_comment').fadeOut(7000);
-                        $('.comment_name').val('');
-                        $('.comment_content').val('');
-                    }
-                });
-            });
-        });
-    </script>
-    <script type="text/javascript">
+			function load_comment() {
+				var product_id = $('.comment_product_id').val();
+				var _token = $('input[name="_token"]').val();
+				$.ajax({
+					url: "{{url('/load-comment')}}",
+					method: "POST",
+					data: {
+						product_id: product_id,
+						_token: _token
+					},
+					success: function(data) {
+						$('#comment_show').html(data);
+					}
+				});
+			}
+			$('.send-comment').click(function() {
+				var product_id = $('.comment_product_id').val();
+				var comment_name = $('.comment_name').val();
+				var comment_content = $('.comment_content').val();
+				var _token = $('input[name="_token"]').val();
+				$.ajax({
+					url: "{{ url('/send-comment') }}",
+					method: "POST",
+					data: {
+						product_id: product_id,
+						comment_name: comment_name,
+						comment_content: comment_content,
+						_token: _token
+					},
+					success: function(data) {
+						load_comment();
+						$('#notify_comment').html('<span class="text text-success">Thêm bình luận thành công, Vui lòng chờ admin duyệt!!!</span>');
 
-        $(document).ready(function(){
+						$('#notify_comment').fadeOut(7000);
+						$('.comment_name').val('');
+						$('.comment_content').val('');
+					}
+				});
+			});
+		});
+	</script>
+	<script type="text/javascript">
+		$(document).ready(function() {
 
-            $(document).on('change','.chonsize',function(){
-                var idpro=document.getElementById("lay_id").value;
-                var size_id=$(this).val();
-                var div=$(".chonmau").parent();
-                var op=" ";
+			$(document).on('change', '.chonsize', function() {
+				var idpro = document.getElementById("lay_id").value;
+				var size_id = $(this).val();
+				var div = $(".chonmau").parent();
+				var op = " ";
 
-                $.ajax({
-                    type:'get',
-                    url:'{!!URL::to('find-mau')!!}',
-                    data:{'id':size_id,'idpro':idpro},
-                    success:function(data){
-                        op+='<option value="0" selected disabled> Chọn màu</option>';
-                        for(var i=0;i<data.length;i++){
-                            op+='<option value="'+data[i].color_id+'">'+data[i].color_name+'</option>';
-                       }
-                       console.log(op);
-                       div.find('.chonmau').html(" ");
-                       console.log(div.find('.chonmau').html(" "));
-                       div.find('.chonmau').append(op);
-                    },
-                    error:function(){
-                    }
-                });
-            });
-        });
-    </script>
+				$.ajax({
+					type: 'get',
+					url: '{!!URL::to('
+					find - mau ')!!}',
+					data: {
+						'id': size_id,
+						'idpro': idpro
+					},
+					success: function(data) {
+						op += '<option value="0" selected disabled> Chọn màu</option>';
+						for (var i = 0; i < data.length; i++) {
+							op += '<option value="' + data[i].color_id + '">' + data[i].color_name + '</option>';
+						}
+						console.log(op);
+						div.find('.chonmau').html(" ");
+						console.log(div.find('.chonmau').html(" "));
+						div.find('.chonmau').append(op);
+					},
+					error: function() {}
+				});
+			});
+		});
+	</script>
 
 </body>
-</html>
 
+</html>

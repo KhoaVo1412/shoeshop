@@ -122,8 +122,25 @@
 
 }
 
+
 /* xs */
 @media (max-width: 767px) {
+.row-header-top{
+	display: none;
+}
+
+.row-footer-bottom{
+	display: flex;
+}
+
+.header-middle, .header-bottom{
+	border-bottom: 1px solid #8a8a8a;
+}
+
+.header-bottom{
+	border-bottom-left-radius: 8px;
+	border-bottom-right-radius: 8px;
+}
 
 .header_top .col-sm-6:first-child{
 	display: inline-block;
@@ -135,10 +152,24 @@
 	float: right;
 }
 
+.header-middle .container .row::before,
+.header-middle .container .row::after{
+	display: none;
+}
+
 .header-middle .col-sm-4 {
 	display: inline-block;
 	overflow: inherit;
-	width: 100%;
+	width: auto;
+	padding-right: 0;
+}
+
+.header-bottom .row {
+	display: flex;
+}
+
+.header-bottom .row .col-sm-8 {
+	margin-right: calc(100% - 520px);
 }
 
 .social-icons ul li a i {
@@ -151,6 +182,7 @@
 
 .shop-menu .nav.navbar-nav{
 	margin-left: -30px;
+	padding-right: 15px;
 }
 
 .header-bottom .col-sm-9{
@@ -160,6 +192,7 @@
 
 .mainmenu{
 	width: 100%;
+	display: none;
 }
 
 .mainmenu ul li{
@@ -226,6 +259,68 @@ ul.sub-menu{
 	top: 38px;
 }
 
+/* .navbar-toggle{
+	position: relative;
+} */
+
+#sideNav.active{
+	left: 0;
+}
+
+#sideNav{
+	display: block;
+	position: fixed;
+	top: 0;
+	left: -250px;
+	width: 250px;
+	height: 100%;
+	background-color: #fff;
+	z-index: 1000;
+	transition: left 0.3s ease;
+	box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+	overflow-y: auto;
+	padding: 15px;
+	z-index: 9999;
+}
+
+#cartNav.active{
+	left: 0;
+}
+
+#cartNav{
+	display: block;
+	position: fixed;
+	top: 0;
+	left: -250px;
+	width: 250px;
+	height: 100%;
+	background-color: #fff;
+	z-index: 1000;
+	transition: left 0.3s ease;
+	box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+	overflow-y: auto;
+	padding: 15px;
+}
+
+#menuP2-1-nav.active {
+	left: 0;
+}
+
+#menuP2-1-nav {
+	display: block;
+	position: fixed;
+	top: 0;
+	left: -250px;
+	width: 250px;
+	height: 100%;
+	background-color: #fff;
+	z-index: 1000;
+	transition: left 0.3s ease;
+	box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+	overflow-y: auto;
+	padding: 15px;
+}
+
 #slider-carousel .item{
 	padding-left: 0;
 }
@@ -264,6 +359,29 @@ ul.sub-menu{
 
 }
 
+.view-product {
+	display: flex;
+	flex-direction: row-reverse;
+}
+
+.view-product .mini-img-list {
+	flex-direction: column;
+	width: 20%;
+}
+
+.view-product .mini-img-list .mini-img {
+	width: 100%;
+}
+
+.view-product img {
+	width: 80%;
+}
+
+.product-information{
+	padding-top: 0;
+	padding-left: 0;
+}
+
 .product-information span {
 	display: block;
 }
@@ -276,6 +394,16 @@ ul.sub-menu{
 	display: inline-block;
 }
 
+}
+
+@media (max-width: 500px) {
+	.header-bottom .row .col-sm-8 {
+		margin-right: calc(100% - 360px);
+	}
+
+	.search_box input {
+		width: 120px;
+	}
 }
 
 /* XS Portrait */
@@ -314,7 +442,7 @@ ul.sub-menu{
 	float: none;
 }
 
-.contactinfo .nav.nav-pills, .social-icons .nav.navbar-nav{
+.social-icons .nav.navbar-nav{
 	display: inline-block;
 }
 
@@ -330,10 +458,16 @@ ul.sub-menu{
 .header-middle .col-sm-4{
 	text-align: center;
 	overflow: inherit;
+	width: 100%;
 }
 
 .shop-menu .nav.navbar-nav {
 	margin-left: 0;
+	display: none;
+}
+
+.nav-function-list .nav-list-his-login{
+	display: flex;
 }
 
 .btn-group>.btn-group:last-child>.btn:first-child{
@@ -460,6 +594,10 @@ ul.sub-menu{
 
 #similar-product .carousel-inner .item img{
 	margin-left: 4px;
+}
+
+.size-color{
+	justify-content: space-between!important;
 }
 
 .product-information{
