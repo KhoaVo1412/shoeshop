@@ -1228,7 +1228,6 @@ h2.title {
   display: inline-block;
   margin-bottom: 25px;
   margin-top: 0;
-  padding-left: 15px;
 }
 
 .pagination  li:first-child  a, .pagination  li:first-child  span {
@@ -1680,6 +1679,7 @@ h2.title {
 **************************/
 
 #do_action {
+  margin-top: 20px;
   margin-bottom: 50px;
 }
 
@@ -1689,7 +1689,7 @@ h2.title {
 
 .breadcrumbs .breadcrumb {
   background:transparent;
-  margin-bottom: 75px;
+  margin-bottom: 15px;
   padding-left: 0;
 }
 
@@ -1697,6 +1697,7 @@ h2.title {
   background:#FE980F;
   color: #FFFFFF;
   padding: 3px 7px;
+  position: relative;
 }
 
 .breadcrumbs .breadcrumb li a:after {
@@ -1707,8 +1708,8 @@ h2.title {
   border-style: solid;
   border-color:transparent transparent transparent #FE980F;
   position: absolute;
-  top: 11px;
-  left:48px;
+  top: 3px;
+  left: 80px;
 
 }
 
@@ -1779,12 +1780,24 @@ h2.title {
 
 #cart_items .cart_info .cart_total_price {
   color: #FE980F;
-  font-size: 24px;
+  white-space: nowrap;
 }
 
 .cart_product {
   display: block;
-  margin: 15px -70px 10px 25px;
+  margin: 10px 0px 10px 5px;
+}
+
+.cart_size, .cart_color{
+  text-align: center;
+  padding: 0px 6px;
+}
+
+#cart_items .cart_info .cart_price p {
+  color: #696763;
+  font-size: 16px;
+  padding: 0px 8px;
+  white-space: nowrap;
 }
 
 .cart_quantity_button a {
@@ -1799,6 +1812,11 @@ h2.title {
   float: left;
 }
 
+.cart_quantity_button form{
+  width: 100px;
+  display: flex;
+  align-items: center;
+}
 
 .cart_quantity_input {
   color: #696763;
@@ -1812,7 +1830,6 @@ h2.title {
 
 .cart_delete  {
   display: block;
-  margin-right: -12px;
   overflow: hidden;
 }
 
@@ -1847,27 +1864,25 @@ h2.title {
   font-weight: 300;
 }
 
-
-#do_action .total_area {
-  padding-bottom: 18px !important;
-}
-
 #do_action .total_area, #do_action .chose_area {
   border: 1px solid #E6E4DF;
   color: #696763;
-  padding: 30px 25px 30px 0;
-  margin-bottom: 80px;
+  padding: 20px 15px 20px 0;
 }
 
 .total_area span {
   float: right;
 }
 
+.total_area ul{
+  padding-left: 15px;
+}
+
 .total_area ul li {
   background:#E6E4DF;
   color: #696763;
   margin-top: 10px;
-  padding: 7px 20px;
+  padding: 7px 15px;
 }
 
 
@@ -1939,10 +1954,6 @@ h2.title {
 }
 .update{
     margin-left: 40px;
-}
-
-.check_out {
-  margin-left: 20px
 }
 
 
@@ -2675,6 +2686,94 @@ h2.title {
 
 .contact-info .social-networks ul li a:hover{
   color: #FE980F;
+}
+
+/* Slider scroll */
+.slider-scroll .title {
+  color: #FE980F;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 32px;
+  width: 100%;
+  text-align: center;
+}
+
+.slider-scroll {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 40px 0;
+}
+
+.list-customer {
+  display: flex;
+  width: max-content;
+  /* Đảm bảo chứa toàn bộ ảnh */
+  animation: scroll 15s linear infinite;
+  /* Cuộn mượt mà liên tục */
+}
+
+.list-customer:hover {
+  animation-play-state: paused;
+  /* Dừng animation khi hover */
+}
+
+.img-customer {
+  flex: 0 0 auto;
+  width: 108px;
+  margin: 0 20px;
+  /* Khoảng cách giữa các ảnh */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-customer img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Hiệu ứng mờ hai bên */
+.slider-scroll::before,
+.slider-scroll::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100px;
+  z-index: 1;
+  transition: opacity 0.3s ease;
+  /* Chuyển đổi mượt mà */
+}
+
+.slider-scroll::before {
+  left: 0;
+  background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+}
+
+.slider-scroll::after {
+  right: 0;
+  background: linear-gradient(to left, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+}
+
+.slider-scroll:hover::before,
+.slider-scroll:hover::after {
+  opacity: 0;
+  /* Ẩn hiệu ứng mờ khi hover */
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+    /* Di chuyển nửa nội dung để lặp mượt */
+  }
 }
 
 

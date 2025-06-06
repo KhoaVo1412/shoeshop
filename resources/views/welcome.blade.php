@@ -274,7 +274,7 @@
 
 	<section>
 		<div class="container">
-			<div class="row">
+			<div class="row row-container">
 				<div class="col-sm-3">
 					<div class="left-sidebar">
 						<h2>Danh mục sản phẩm</h2>
@@ -334,6 +334,34 @@
 					@yield('content')
 
 				</div>
+			</div>
+		</div>
+		<div class="slider-scroll">
+			<p class="title">Nhãn hàng hợp tác</p>
+			<div class="list-customer" id="customerList">
+				<div class="img-customer"><img src="../frontend/images/acecook.png" alt="acecook"></div>
+				<div class="img-customer"><img src="../frontend/images/audax.png" alt="audax"></div>
+				<div class="img-customer"><img src="../frontend/images/decathlon.png" alt="decathlon"></div>
+				<div class="img-customer"><img src="../frontend/images/dhqg.png" alt="dhqg"></div>
+				<div class="img-customer"><img src="../frontend/images/fptEdu.png" alt="fptEdu"></div>
+				<div class="img-customer"><img src="../frontend/images/hoasenUni.png" alt="hoasenUni"></div>
+				<div class="img-customer"><img src="../frontend/images/lifestyle.png" alt="lifestyle"></div>
+				<div class="img-customer"><img src="../frontend/images/penArtSciene.png" alt="penArtSciene"></div>
+				<div class="img-customer"><img src="../frontend/images/pizza4p.png" alt="pizza4p"></div>
+				<div class="img-customer"><img src="../frontend/images/spriderum.png" alt="spriderum"></div>
+				<div class="img-customer"><img src="../frontend/images/ueh.png" alt="ueh"></div>
+				<!-- copy -->
+				<div class="img-customer"><img src="../frontend/images/acecook.png" alt="acecook"></div>
+				<div class="img-customer"><img src="../frontend/images/audax.png" alt="audax"></div>
+				<div class="img-customer"><img src="../frontend/images/decathlon.png" alt="decathlon"></div>
+				<div class="img-customer"><img src="../frontend/images/dhqg.png" alt="dhqg"></div>
+				<div class="img-customer"><img src="../frontend/images/fptEdu.png" alt="fptEdu"></div>
+				<div class="img-customer"><img src="../frontend/images/hoasenUni.png" alt="hoasenUni"></div>
+				<div class="img-customer"><img src="../frontend/images/lifestyle.png" alt="lifestyle"></div>
+				<div class="img-customer"><img src="../frontend/images/penArtSciene.png" alt="penArtSciene"></div>
+				<div class="img-customer"><img src="../frontend/images/pizza4p.png" alt="pizza4p"></div>
+				<div class="img-customer"><img src="../frontend/images/spriderum.png" alt="spriderum"></div>
+				<div class="img-customer"><img src="../frontend/images/ueh.png" alt="ueh"></div>
 			</div>
 		</div>
 	</section>
@@ -559,6 +587,23 @@
 		}
 
 		document.addEventListener('DOMContentLoaded', navbarResponsive)
+	</script>
+	<script>
+		const customerList = document.getElementById('customerList');
+
+		function resetScroll() {
+			// Khi animation kết thúc một chu kỳ, reset về đầu
+			customerList.addEventListener('animationiteration', () => {
+				customerList.style.transition = 'none';
+				customerList.style.transform = 'translateX(0)';
+				// Buộc reflow để reset ngay lập tức
+				void customerList.offsetWidth;
+				customerList.style.transition = '';
+			});
+		}
+
+		// Khởi tạo reset cuộn
+		resetScroll();
 	</script>
 
 	{{-- Loc --}}

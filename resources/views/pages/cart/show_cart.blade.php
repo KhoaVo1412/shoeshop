@@ -16,7 +16,7 @@
             $count = Cart::count();
             ?>
             @if($count != 0)
-            <table class="table table-condensed">
+            <table class="table table-condensed" style="overflow: scroll; display: block;">
                 <thead>
                     <tr class="cart_menu">
                         <td class="image">Hình ảnh</td>
@@ -51,7 +51,7 @@
                         <td class="cart_price">
                             <p>{{number_format($v_content->price).' '.' VND'}}</p>
                         </td>
-                        <td class="cart_quantity">
+                        <td class="cart_quantity" style="padding: 6px;">
                             <div class="cart_quantity_button">
                                 <form action="{{URL::to('/update-cart-quantity')}}" method="POST">
                                     {{@csrf_field()}}
@@ -65,11 +65,11 @@
                             </div>
                         </td>
                         <td class="cart_total">
-                            <p class="cart_total_price" style="font-size: 20px">
+                            <p class="cart_total_price" style="font-size: 18px">
                                 <?php
-                                            $subtotal = $v_content->price *  $v_content->qty;
-                                            echo number_format($subtotal).' '.'VND';
-                                        ?>
+                                $subtotal = $v_content->price *  $v_content->qty;
+                                echo number_format($subtotal) . ' ' . 'VND';
+                                ?>
                             </p>
                         </td>
                         <td class="cart_delete">
@@ -85,7 +85,7 @@
 </section>
 <!--/#cart_items-->
 <section id="do_action">
-    <div class="container" style="width: 1000px">
+    <div class="container" style="width: 100%">
         <div class="row">
 
             <div class="col-sm-4">
@@ -123,19 +123,18 @@
 
                             <?php
                             $customer_id = Session::get('customer_id');
-                            if($customer_id !=NULL){
-                                ?>
-                            <a class="btn btn-default check_out" href="/checkout/{{0}}/{{ $total }}">Thanh toán không mã
-                                giảm</a>
+                            if ($customer_id != NULL) {
+                            ?>
+                                <a class="btn btn-default check_out" href="/checkout/{{0}}/{{ $total }}">Thanh toán không mã
+                                    giảm</a>
                             <?php
-                                }
-                                else {
-                                ?>
-                            <a class="btn btn-default check_out" href="{{URL::to('/login-checkout')}}">Đăng nhập để
-                                thanh toán</a>
+                            } else {
+                            ?>
+                                <a class="btn btn-default check_out" href="{{URL::to('/login-checkout')}}">Đăng nhập để
+                                    thanh toán</a>
                             <?php
-                                }
-                                ?>
+                            }
+                            ?>
                             <input type="hidden" value="0" name="giam_gia">
                             <input type="hidden" value="{{$total}}" name="tien_phai_tra">
                             @endif
@@ -183,19 +182,18 @@
                         @if(Session::get('coupon')!=NULL)
                         <?php
                         $customer_id = Session::get('customer_id');
-                        if($customer_id !=NULL){
-                            ?>
-                        <a class="btn btn-default check_out" href="/checkout/{{ $total_coupon }}/{{$total_end}}">Thanh
-                            toán</a>
+                        if ($customer_id != NULL) {
+                        ?>
+                            <a class="btn btn-default check_out" href="/checkout/{{ $total_coupon }}/{{$total_end}}">Thanh
+                                toán</a>
                         <?php
-                            }
-                            else {
-                            ?>
-                        <a class="btn btn-default check_out" href="{{URL::to('/login-checkout')}}">Đăng nhập để thanh
-                            toán </a>
+                        } else {
+                        ?>
+                            <a class="btn btn-default check_out" href="{{URL::to('/login-checkout')}}">Đăng nhập để thanh
+                                toán </a>
                         <?php
-                            }
-                            ?>
+                        }
+                        ?>
                         @endif
                     </div>
                 </div>

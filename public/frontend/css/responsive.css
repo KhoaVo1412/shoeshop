@@ -133,6 +133,11 @@
 	display: flex;
 }
 
+.row-container{
+	display: flex;
+	flex-direction: column-reverse;
+}
+
 .header-middle, .header-bottom{
 	border-bottom: 1px solid #8a8a8a;
 }
