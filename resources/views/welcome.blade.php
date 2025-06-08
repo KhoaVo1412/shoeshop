@@ -175,8 +175,8 @@
 		<div class="nav-function">
 			<ul class="nav-function-list">
 				<li><a href="#">Trang chủ</a></li>
-				<li><a href="#" id="cartBtn">Giỏ hàng</a></li>
-				<li><a href="#" id="contactBtn">Liên hệ</a></li>
+				<li id="cartBtn"><a href="#">Giỏ hàng</a></li>
+				<li id="contactBtn"><a href="#">Liên hệ</a></li>
 				<ul class="nav navbar-nav nav-list-his-login">
 
 					{{-- <li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i> Yêu thích</a></li> --}}
@@ -205,9 +205,9 @@
 		<div class="cartNav" id="cartNav">
 			<p id="closecartNav">X</p>
 			<ul>
-				<li><a href="#" id="menuP2-1-btn">1</a></li>
-				<li><a href="#" id="menuP2-2-btn">2</a></li>
-				<li><a href="#" id="menuP2-3-btn">3</a></li>
+				<li id="menuP2-1-btn"><a href="#">1</a></li>
+				<li id="menuP2-2-btn"><a href="#">2</a></li>
+				<li id="menuP2-3-btn"><a href="#">3</a></li>
 			</ul>
 			<div class="menuP2-1-nav" id="menuP2-1-nav">
 				<p id="closemenuP2-1-nav">X</p>
